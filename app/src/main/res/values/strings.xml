@@ -12,5 +12,7 @@
         <item>Ostatnie i pamięć podręczna</item>
         <item>Inne błędy</item>
     </array>
+    <string name="title_activity_single_item">SingleItemActivity</string>
+    <string name="title_activity_maps">Map</string>
 
 </resources>

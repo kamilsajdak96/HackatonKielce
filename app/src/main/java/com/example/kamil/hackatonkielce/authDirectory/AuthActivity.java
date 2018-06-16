@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.kamil.hackatonkielce.MainActivity;
 import com.example.kamil.hackatonkielce.R;
 import com.example.kamil.hackatonkielce.registerDirectory.RegisterActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -41,13 +42,12 @@ public class AuthActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auth);
-        //ButterKnife.bind(this);
 
         loginButton = findViewById(R.id.loginButton);
         registerButton = findViewById(R.id.registerButton);
         emailEditText = findViewById(R.id.emailEditText);
         passEditText = findViewById(R.id.passEditText);
-        //textView = (TextView) findViewById(R.id.textView);
+
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -58,6 +58,7 @@ public class AuthActivity extends AppCompatActivity {
 
                 Intent toy = new Intent(AuthActivity.this, RegisterActivity.class);
                 startActivity(toy);
+                finish();
             }
         });
 
@@ -98,9 +99,9 @@ public class AuthActivity extends AppCompatActivity {
                             Log.d("sth", "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
 
-                            // Intent toy = new Intent(AuthActivity.this, jakies inne activity.class);
-                            //                startActivity(toy);
-                            // updateUI(user);
+                             Intent toy = new Intent(AuthActivity.this, MainActivity.class);
+                                            startActivity(toy);
+                             //updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.d("sth", "signInWithEmail:failure", task.getException());

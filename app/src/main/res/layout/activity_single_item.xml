@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ReceiveDirectory.SingleItemDirectory.SingleItemActivity">
+
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:text="Tytul"
+        android:layout_marginLeft="20dp"
+        android:textColor="#e2002d"
+        android:layout_alignParentLeft="true"
+        android:textSize="60dp"/>
+
+    <TextView
+        android:id="@+id/textViewSalary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/textViewTitle"
+        android:layout_marginTop="40dp"
+        android:textColor="#000"
+        android:text="Kwota"
+        android:layout_marginRight="20dp"
+        android:layout_alignParentRight="true"
+        android:textSize="20dp"/>
+
+    <TextView
+        android:id="@+id/textContent"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_below="@+id/textViewSalary"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="#d8d8d8"
+
+        android:text="Opis"
+
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/buttonLocalization"
+        android:text="Lokalizacja"
+        android:textSize="40dp"
+        android:textColor="#FFFFFF"
+        android:layout_below="@+id/textContent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button"
+        android:drawableLeft="@drawable/lokalizacja"
+        android:drawablePadding="2dip"
+        android:paddingLeft="30dip"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        />
+
+    <TextView
+        android:id="@+id/textViewPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/buttonLocalization"
+        android:layout_marginTop="20dp"
+        android:text="Numer"
+
+        android:textSize="30dp"/>
+
+
+</RelativeLayout>

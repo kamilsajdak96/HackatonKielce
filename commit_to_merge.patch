@@ -1,0 +1,161 @@
+Index: app/src/main/java/com/example/kamil/hackatonkielce/ReceiveDirectory/SingleItemDirectory/SingleItemActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/kamil/hackatonkielce/ReceiveDirectory/SingleItemDirectory/SingleItemActivity.java	(date 1529120039000)
++++ app/src/main/java/com/example/kamil/hackatonkielce/ReceiveDirectory/SingleItemDirectory/SingleItemActivity.java	(date 1529120728125)
+@@ -1,12 +1,8 @@
+ package com.example.kamil.hackatonkielce.ReceiveDirectory.SingleItemDirectory;
+ 
+ import android.os.Bundle;
+-import android.support.design.widget.FloatingActionButton;
+-import android.support.design.widget.Snackbar;
+ import android.support.v7.app.AppCompatActivity;
+-import android.support.v7.widget.Toolbar;
+ import android.util.Log;
+-import android.view.View;
+ import android.widget.Button;
+ import android.widget.TextView;
+ 
+Index: app/src/main/java/com/example/kamil/hackatonkielce/GiveActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/kamil/hackatonkielce/GiveActivity.java	(date 1529120039000)
++++ app/src/main/java/com/example/kamil/hackatonkielce/GiveActivity.java	(date 1529120889431)
+@@ -214,7 +214,7 @@
+         if(!TextUtils.isEmpty(title)){
+ 
+             String id = raportDatabase.push().getKey();
+-            PaidOffers reports = new PaidOffers(id,title,sallary,description,number);
++            PaidOffers reports = new PaidOffers(id,title,salary,text,number);
+             raportDatabase.child(id).setValue(reports);
+             Toast.makeText(this,"Dodano raport, dziękujemy.",Toast.LENGTH_LONG).show();
+ 
+Index: app/src/main/java/com/example/kamil/hackatonkielce/PaidOffers.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/kamil/hackatonkielce/PaidOffers.java	(date 1529120039000)
++++ app/src/main/java/com/example/kamil/hackatonkielce/PaidOffers.java	(date 1529120768249)
+@@ -8,6 +8,45 @@
+     String description;
+     String addPhoneNumber;
+ 
++    public String getIdOfPaidOffer() {
++        return idOfPaidOffer;
++    }
++
++    public void setIdOfPaidOffer(String idOfPaidOffer) {
++        this.idOfPaidOffer = idOfPaidOffer;
++    }
++
++    public String getTitle() {
++        return title;
++    }
++
++    public void setTitle(String title) {
++        this.title = title;
++    }
++
++    public String getSallary() {
++        return sallary;
++    }
++
++    public void setSallary(String sallary) {
++        this.sallary = sallary;
++    }
++
++    public String getDescription() {
++        return description;
++    }
++
++    public void setDescription(String description) {
++        this.description = description;
++    }
++
++    public String getAddPhoneNumber() {
++        return addPhoneNumber;
++    }
++
++    public void setAddPhoneNumber(String addPhoneNumber) {
++        this.addPhoneNumber = addPhoneNumber;
++    }
+ 
+     public PaidOffers(){
+ 
+@@ -20,6 +59,8 @@
+         this.description = description; //czyli tekst
+         this.addPhoneNumber = addPhoneNumber;
+     }
++
++
+     public PaidOffers(String idOfPaidOffer, String title, String description, String addPhoneNumber) {
+         this.idOfPaidOffer = idOfPaidOffer;
+         this.title = title;
+@@ -27,15 +68,4 @@
+         this.addPhoneNumber = addPhoneNumber;
+     }
+ 
+-    public String getidOfPaidOffer() {
+-        return idOfPaidOffer;
+-    }
+-
+-    public String gettitle() {
+-        return title;
+-    }
+-
+-    public String getdescription() {
+-        return description;
+-    }
+ }
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/misc.xml	(date 1529120039000)
++++ .idea/misc.xml	(date 1529120907751)
+@@ -25,7 +25,7 @@
+       </value>
+     </option>
+   </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/build/classes" />
+   </component>
+   <component name="ProjectType">
+Index: gradle.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1250
+===================================================================
+--- gradle.properties	(date 1529120039000)
++++ gradle.properties	(date 1529120855116)
+@@ -10,4 +10,6 @@
+ # When configured, Gradle will run in incubating parallel mode.
+ # This option should only be used with decoupled projects. More details, visit
+ # http://www.gradle.org/docs/current/userguide/multi_project_builds.html#sec:decoupled_projects
+-# org.gradle.parallel=true
+\ No newline at end of file
++# org.gradle.parallel=true
++
++android.enableAapt2=false
+\ No newline at end of file
+diff --git .idea/caches/build_file_checksums.ser .idea/caches/build_file_checksums.ser
+index 5ef42208313d2e04524808939541fb72da5c1e2c..c21481934016f62b76f498d3336d8c916c418790
+GIT binary patch
+literal 539
+zc${1FmVvdnh`~NNKUXg?FQq6yGexf?KR>5fFEb@IQ7^qHF(oHeub?PDD>b=9F91S2
+zm1gFoxMk*~I%lLNXBU^|7Q2L-Ts|(GuF1r}<i#MFTj`TnT;dMa8(f)}9Fm!vT3nKt
+zTj0aMpIeEdv4nx&Co8cmQNOe#Ge_SyvB0{bfPsNAg>B2+pFnpBg5>l-a(W(##Th_(
+zR`y#54~r#SWM*J;W8likPfT%3OfJbU@?_vF$tX%K&dAS6sVJ~_U;qK0at<IV0K{x1
+z3<8M-1u;n=r$fC}TExH<?X>2z_zyOYkOxc*3?Qo+1Ul_~+vH~KlSz+Z{i1ew`w^fM
+zi&INVGV{`lVHyh=>KNESYUkZd*k^N}Jx@15Pb%E$@WK)XEoZBk(Bjmh;uzn|<c!3l
+zO)*eSF^I4%NG&SKOf5zjb49l2W<SFwmX{5jGv54gsw-jOL2)Qtp?`6})%!Ys9;hyg
+z$erV#odfh$PJVJ?4pvhQHa%H9)o_bLx9>bBr<>hnB@BXi+_1~;&eaQ7ckus@w_M5}
+Ip7yZ<03`apO#lD@
+

@@ -20,14 +20,10 @@ import com.google.firebase.auth.FirebaseAuth;
 public class RegisterActivity extends AppCompatActivity {
 
 
-    //    @BindView(R.id.appBarLayout2)
-    //    @BindView(R.id.emailId)
     EditText emailId;
-    //    @BindView(R.id.passID)
     EditText passID;
-    //    @BindView(R.id.registerButt)
+
     Button registerButt;
-    //    @BindView(R.id.goBackButt)
     Button goBackButt;
     private FirebaseAuth mAuth;
 
@@ -38,7 +34,6 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
 
         mAuth = FirebaseAuth.getInstance();
 

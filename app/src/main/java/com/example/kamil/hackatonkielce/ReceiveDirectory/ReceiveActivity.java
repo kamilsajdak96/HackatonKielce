@@ -9,19 +9,13 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.kamil.hackatonkielce.FromReceiveActivityLocation;
 import com.example.kamil.hackatonkielce.R;
-import com.firebase.client.ChildEventListener;
-import com.firebase.client.DataSnapshot;
-import com.firebase.client.Firebase;
-import com.firebase.client.FirebaseError;
+import com.example.kamil.hackatonkielce.ReceiveDirectory.SingleItemDirectory.SingleItemActivity;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -65,6 +59,8 @@ public class ReceiveActivity extends AppCompatActivity {
 
 
         buttonLocation = (Button) findViewById(R.id.buttonLocation);
+        Typeface fontOfButtons = Typeface.createFromAsset(getAssets(),"fonts/Bold.ttf");
+        buttonLocation.setTypeface(fontOfButtons);
         buttonLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -74,11 +70,14 @@ public class ReceiveActivity extends AppCompatActivity {
             }
         });
         buttonFilter = (Button) findViewById(R.id.buttonFilter);
+        Typeface fontOfButtons1 = Typeface.createFromAsset(getAssets(),"fonts/Bold.ttf");
+        buttonFilter.setTypeface(fontOfButtons1);
         buttonFilter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Toast.makeText(ReceiveActivity.this, "Tu nam sie sortuje baza", Toast.LENGTH_SHORT).show();
+//              Toast.makeText(ReceiveActivity.this, "Tu nam sie sortuje baza", Toast.LENGTH_SHORT).show();
+                selectWithfilter();
 
             }
         });
@@ -86,8 +85,10 @@ public class ReceiveActivity extends AppCompatActivity {
         selectAll();
 
 
+
+
         textView = (TextView) findViewById(R.id.textView1);
-        Typeface myCustomFont = Typeface.createFromAsset(getAssets(), "fonts/Pacifico.ttf");
+        Typeface myCustomFont = Typeface.createFromAsset(getAssets(), "fonts/Pacifico.otf");
         textView.setTypeface(myCustomFont);
 
 
@@ -96,21 +97,18 @@ public class ReceiveActivity extends AppCompatActivity {
     }
 
 
-
-    protected void selectStreet(String street) {
-
-        Query query = FirebaseDatabase.getInstance().getReference("AddingOfferts")
-                .orderByChild("streetName")
-                .equalTo(street);
-
-    }
-
     protected void selectAll() {
-        Log.d("sth","zatancze na twoim grobie");
+       // Log.d("sth","zatancze na twoim grobie");
         Query query = FirebaseDatabase.getInstance().getReference("AddingOfferts");
         query.addListenerForSingleValueEvent(valueEventListener);
     }
 
+
+    protected void selectWithfilter() {
+        Log.d("sth","zatancze na twoim grobie");
+        Query query = FirebaseDatabase.getInstance().getReference("AddingOfferts").orderByChild("sallary").startAt(1);
+        query.addListenerForSingleValueEvent(valueEventListener);
+    }
 
     ValueEventListener valueEventListener = new ValueEventListener() {
 

@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.kamil.hackatonkielce.ReceiveDirectory.ReceiveActivity;
+import com.example.kamil.hackatonkielce.giveDirectory.GiveActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         t = (TextView) findViewById(R.id.textView1);
-        Typeface myCustomFont = Typeface.createFromAsset(getAssets(),"fonts/Pacifico.ttf");
+        Typeface myCustomFont = Typeface.createFromAsset(getAssets(),"fonts/Pacifico.otf");
         t.setTypeface(myCustomFont);
         button = (Button) findViewById(R.id.buttonGiveJob);
         Typeface fontOfButtons = Typeface.createFromAsset(getAssets(),"fonts/Bold.ttf");
@@ -51,12 +52,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(toy);
             }
         });
+
         button = (Button) findViewById(R.id.buttonVoluntary);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Intent toy = new Intent(MainActivity.this, VoluntaryActivity.class);
+                //Intent toy = new Intent(MainActivity.this, VoluntaryActivity.class);
+                Intent toy = new Intent(MainActivity.this, Test.class);
                 startActivity(toy);
             }
         });
