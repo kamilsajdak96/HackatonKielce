@@ -11,11 +11,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.kamil.hackatonkielce.FromReceiveActivityLocation;
+import com.example.kamil.hackatonkielce.MapsActivity;
 import com.example.kamil.hackatonkielce.R;
-import com.example.kamil.hackatonkielce.ReceiveDirectory.SingleItemDirectory.SingleItemActivity;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -65,7 +63,7 @@ public class ReceiveActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // = 0;
-                Intent toy = new Intent(ReceiveActivity.this, FromReceiveActivityLocation.class);
+                Intent toy = new Intent(ReceiveActivity.this, MapsActivity.class);
                 startActivity(toy);
             }
         });

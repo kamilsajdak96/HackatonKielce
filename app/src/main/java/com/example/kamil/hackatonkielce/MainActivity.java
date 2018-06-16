@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 //Intent toy = new Intent(MainActivity.this, VoluntaryActivity.class);
-                Intent toy = new Intent(MainActivity.this, Test.class);
+                Intent toy = new Intent(MainActivity.this, VoluntaryActivity.class);
                 startActivity(toy);
             }
         });

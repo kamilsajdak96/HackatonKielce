@@ -13,11 +13,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.kamil.hackatonkielce.FromReceiveActivityLocation;
-import com.example.kamil.hackatonkielce.R;
 import com.example.kamil.hackatonkielce.ReceiveDirectory.Offerts;
 import com.example.kamil.hackatonkielce.ReceiveDirectory.OffertsAdapter;
-import com.example.kamil.hackatonkielce.ReceiveDirectory.SingleItemDirectory.SingleItemActivity;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -88,7 +85,7 @@ public class ReceiveActivityForVoluntary extends AppCompatActivity {
 
 
         textView = (TextView) findViewById(R.id.textView1);
-        Typeface myCustomFont = Typeface.createFromAsset(getAssets(), "fonts/Pacifico.ttf");
+        Typeface myCustomFont = Typeface.createFromAsset(getAssets(), "fonts/Pacifico.otf");
         textView.setTypeface(myCustomFont);
 
 
@@ -106,7 +103,7 @@ public class ReceiveActivityForVoluntary extends AppCompatActivity {
     }
 
     protected void selectAll() {
-        Log.d("sth", "zatancze na twoim grobie");
+        Log.d("sth", "");
         Query query = FirebaseDatabase.getInstance().getReference("AddingVolunterOfferts");
         query.addListenerForSingleValueEvent(valueEventListener);
     }
@@ -122,7 +119,6 @@ public class ReceiveActivityForVoluntary extends AppCompatActivity {
                 for (com.google.firebase.database.DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Offerts artist = snapshot.getValue(Offerts.class);
                     offertsList.add(artist);
-                    Log.d("sth", "" + artist.title);
                 }
                 offertsAdapter.notifyDataSetChanged();
             }

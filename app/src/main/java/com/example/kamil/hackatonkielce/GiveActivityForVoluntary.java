@@ -132,7 +132,7 @@ public class GiveActivityForVoluntary extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent toy = new Intent(GiveActivityForVoluntary.this, FromGiveActivityToLocation.class);
+                Intent toy = new Intent(GiveActivityForVoluntary.this, MapsActivity.class);
                 startActivity(toy);
             }
         });
